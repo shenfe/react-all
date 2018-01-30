@@ -1,0 +1,22 @@
+ul.nav {
+  height: 64px;
+}
+
+ul.nav li {
+  line-height: 32px;
+  padding: 16px 0 !important;
+}
+
+ul.nav li a {
+  display: block;
+  color: #666;
+  border-right: 1px solid #ccc;
+}
+
+ul.nav li.active a {
+  color: lightseagreen;
+}
+
+ul.nav li.active:last-of-type a {
+  border-right: none;
+}
