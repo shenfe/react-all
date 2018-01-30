@@ -12,11 +12,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header links={this.props.navs} />
-        <Route path="/about" component={About}/>
-        <Route path="/list" component={List}/>
-        {/* <Redirect to={{
-          pathname: '/list'
-        }}/> */}
+        <Route path="/about" component={About} />
+        <Route path="/list" component={List} />
+        <Route exact path="/" render={() => (
+          <Redirect to="/list" />
+        )} />
       </div>
     );
   }
