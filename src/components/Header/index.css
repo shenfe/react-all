@@ -2,7 +2,7 @@ ul.nav {
   height: 64px;
 }
 
-ul.nav li {
+ul.nav li.cell {
   line-height: 32px;
   padding: 16px 0 !important;
 }
@@ -17,6 +17,6 @@ ul.nav li.active a {
   color: lightseagreen;
 }
 
-ul.nav li.active:last-of-type a {
+ul.nav li:last-of-type a {
   border-right: none;
 }
