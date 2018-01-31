@@ -10,29 +10,31 @@ import { changeFilter } from '../../store/actions';
 
 import { connect } from 'react-redux';
 
+import axios from 'axios';
+
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [
-        {
-          id: 1,
-          title: 'Day 1'
-        },
-        {
-          id: 2,
-          title: 'Day 2'
-        },
-        {
-          id: 3,
-          title: 'Day 3'
-        }
-      ],
+      list: [],
       status: 0,
       // filterText: ''
     };
 
     this.updateFilterText = this.updateFilterText.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get('/api/getList')
+      .then(res => {
+        this.setState({
+          status: 1,
+          list: res.data.data
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   updateFilterText(event) {
@@ -45,7 +47,7 @@ class List extends React.Component {
     const list = this.state.list.filter(item => String(item.id).includes(listFilterText) || item.title.includes(listFilterText))
       .map(item =>
       <li key={item.id}>
-        <Link to={{ name: 'detail', params: { id: item.id } }}>
+        <Link to={'/list/' + item.id}>
           {item.id}: {item.title}
         </Link>
       </li>
