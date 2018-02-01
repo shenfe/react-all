@@ -56,8 +56,8 @@ class List extends React.Component {
       <div>
         <input type="text" value={this.props.filterText} onChange={this.updateFilterText} />
         {this.state.status === 0
-        ? (<Loading v-if="status == 0" />)
-        : (<ul v-else className="list">{list}</ul>)}
+        ? (<Loading/>)
+        : (<ul className="list">{list}</ul>)}
       </div>
     );
   }
