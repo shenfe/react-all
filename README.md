@@ -22,7 +22,7 @@ npm run build
 npm run test
 ```
 
-详见[]()。
+详见[create-react-app](https://github.com/facebook/create-react-app)。
 
 ## 文件结构
 
@@ -102,11 +102,11 @@ config/webpackDevServer.config.js中配置webpack-dev-server。
 ## 常见问题
 
 <details>
-    <summary>尽量避免组件重复渲染</summary>
-    一种方法是[`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)。
+  <summary>尽量避免组件重复渲染</summary>
+  一种方法是<a href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate">shouldComponentUpdate</a>。
 </details>
 
 <details>
-    <summary>灵活地、细粒度操作DOM或组件</summary>
-    一种方法是使用[`ref`](https://reactjs.org/docs/refs-and-the-dom.html)。
+  <summary>灵活地、细粒度操作DOM或组件</summary>
+  一种方法是使用<a href="https://reactjs.org/docs/refs-and-the-dom.html">ref</a>。
 </details>
