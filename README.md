@@ -101,10 +101,12 @@ config/webpackDevServer.config.js中配置webpack-dev-server。
 
 ## 常见问题
 
-1. 尽量避免组件重复渲染
+<details>
+    <summary>尽量避免组件重复渲染</summary>
+    一种方法是[`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)。
+</details>
 
-> 一种方法是[`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)。
-
-1. 灵活地、细粒度操作DOM或组件
-
-> 一种方法是使用[`ref`](https://reactjs.org/docs/refs-and-the-dom.html)。
+<details>
+    <summary>灵活地、细粒度操作DOM或组件</summary>
+    一种方法是使用[`ref`](https://reactjs.org/docs/refs-and-the-dom.html)。
+</details>
