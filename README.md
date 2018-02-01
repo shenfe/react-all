@@ -63,7 +63,7 @@ npm run test
 
 状态使用Redux管理。
 
-一般情况下的父子组件通信请使用props；非父子关系的复杂的组件间通信以及状态管理，可以使用状态管理器。React社区生态中，Mobx和Redux是两个能与React完美结合的状态管理器。Mobx偏向面向对象思想，基于观察者模式；Redux偏向函数式思想，基于事件发布订阅模式，借鉴Flux，严格的单向数据流。
+一般情况下的父子组件通信请使用props；非父子关系的组件间通信以及状态管理，简单的可以用[状态提升](https://reactjs.org/docs/lifting-state-up.html)——将状态交由最近公共祖先组件分发，而复杂的就可以使用状态管理器。React社区生态中，Mobx和Redux是两个能与React完美结合的状态管理器。Mobx偏向面向对象思想，基于观察者模式；Redux偏向函数式思想，基于事件发布订阅模式，借鉴Flux，严格的单向数据流。
 
 建议使用Redux，因为Redux下的代码有更好的可调试性、可扩展性、可维护性。
 
@@ -78,10 +78,33 @@ npm run test
 
 ## 本地开发和测试
 
+config/webpackDevServer.config.js中配置webpack-dev-server。
 
+例如，通过`historyApiFallback`配置前端路由，通过`proxy`配置接口请求代理，通过`before`配置mock接口请求。
+
+详细配置参考[DevServer](https://webpack.js.org/configuration/dev-server/#devserver-before)。
+
+配置过程中，建议将路由、代理、mock接口从webpack配置中抽离。
 
 ## 常用特性速查参考
 
 | 特性 | 示例 |
 | :---: | :--- |
-| -- | -- |
+| 路由 | -- |
+| 数据获取 | -- |
+| class绑定 | -- |
+| 条件渲染 | -- |
+| 列表渲染 | -- |
+| 表单输入 | -- |
+| 状态管理 | -- |
+| [错误边界](https://reactjs.org/docs/error-boundaries.html) | -- |
+
+## 常见问题
+
+1. 尽量避免组件重复渲染
+
+> 一种方法是[`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)。
+
+1. 灵活地、细粒度操作DOM或组件
+
+> 一种方法是使用[`ref`](https://reactjs.org/docs/refs-and-the-dom.html)。

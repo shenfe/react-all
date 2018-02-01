@@ -12,25 +12,27 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 
+// Only for testing
 function lifecycleLogger(name) {
   return target => {
     [
       'componentWillMount',
       'componentDidMount',
       'componentWillReceiveProps',
-      'shouldComponentUpdate',
       'componentWillUpdate',
       'componentDidUpdate',
       'componentWillUnmount'
     ].forEach(m => {
+      let fn = target.prototype[m];
       target.prototype[m] = function() {
-        console.log(`${name} ${m}`);
+        console.log(`[${name}] [lifecycle] ${m}`);
+        return fn && fn.call(this);
       };
     });
+    return target;
   };
 }
 
-@lifecycleLogger('List')
 class List extends React.Component {
   constructor(props) {
     super(props);
@@ -90,4 +92,4 @@ function select(state) {
   }
 }
 
-export default connect(select)(List);
+export default connect(select)(lifecycleLogger('List')(List));
