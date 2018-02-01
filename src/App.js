@@ -26,8 +26,8 @@ class App extends Component {
 
 App.defaultProps = {
   navs: [
-    { alias: 'list', text: 'list' },
-    { alias: 'about', text: 'about' }
+    { alias: '/list', text: 'list' },
+    { alias: '/about', text: 'about' }
   ]
 };
 

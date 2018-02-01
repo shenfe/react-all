@@ -14,7 +14,7 @@ const classUnion = className => {
   if (type === 'object')
     return Object.keys(className)
       .map(p => !!className[p] && p)
-      .filter(v => !v)
+      .filter(v => !!v)
       .join(' ');
   return '';
 };
@@ -23,7 +23,7 @@ function Header({ links, location }) {
   const navs = links;
   const list = navs.map(item =>
     <li key={item.alias} className={classUnion([{ active: location.pathname === item.alias }, 'cell'])}>
-      <Link to={'/' + item.alias}>{item.text}</Link>
+      <Link to={item.alias}>{item.text}</Link>
     </li>
   );
   return (
