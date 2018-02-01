@@ -54,9 +54,9 @@ npm run test
 
 * 使用BrowserRouter在最外层包装
 * 使用Link作为路由链接
-* 使用Route作为路由视图容器
-* 使用withRouter包装（某一Route内部的子）组件、在其props中注入location、match和history对象
-* 使用exact属性精准匹配路由路径
+* 使用Route作为路由视图容器。Route组件有[三种渲染方法](https://reacttraining.com/react-router/web/api/Route/Route-render-methods)，`component`、`render`、`children`；Route包装的组件直接拥有三个route props，`location`、`match`、`history`
+* 使用withRouter包装（某一Route内部的子）组件，可在该组件props中注入`location`、`match`、`history`
+* 使用Route的exact属性精准匹配路由路径
 * 使用Redirect实现路由重定向
 
 ### 状态数据
