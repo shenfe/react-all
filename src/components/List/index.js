@@ -12,6 +12,25 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 
+function lifecycleLogger(name) {
+  return target => {
+    [
+      'componentWillMount',
+      'componentDidMount',
+      'componentWillReceiveProps',
+      'shouldComponentUpdate',
+      'componentWillUpdate',
+      'componentDidUpdate',
+      'componentWillUnmount'
+    ].forEach(m => {
+      target.prototype[m] = function() {
+        console.log(`${name} ${m}`);
+      };
+    });
+  };
+}
+
+@lifecycleLogger('List')
 class List extends React.Component {
   constructor(props) {
     super(props);
