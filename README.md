@@ -63,12 +63,12 @@ npm run test
 
 状态使用Redux管理。
 
-一般情况下的父子组件通信请使用props；非父子关系的组件间通信以及状态管理，简单的可以用[状态提升](https://reactjs.org/docs/lifting-state-up.html)——将状态交由最近公共祖先组件分发，而复杂的就可以使用状态管理器。React社区生态中，Mobx和Redux是两个能与React完美结合的状态管理器。Mobx偏向面向对象思想，基于观察者模式；Redux偏向函数式思想，基于事件发布订阅模式，借鉴Flux，严格的单向数据流。
+一般情况下的父子组件通信请使用props；非父子关系的组件间通信以及状态管理，简单的可以用[状态提升](https://reactjs.org/docs/lifting-state-up.html)——将状态交由最近公共祖先组件分发，而复杂的就可以使用状态管理器。React社区生态中，Mobx和Redux是两个能与React完美结合的状态管理器。Mobx偏向面向对象思想，Redux偏向函数式思想。Redux借鉴Flux，严格的单向数据流。
 
 建议使用Redux，因为Redux下的代码有更好的可调试性、可扩展性、可维护性。
 
 * 在actions中编写action，action负责把数据传入store，因此每个action包含type和payload
-* 异步action需要依靠action中间件，并通过applyMiddleware生成enhancer，详细参考[异步Action](http://cn.redux.js.org/docs/advanced/AsyncActions.html)
+* 异步action需要依靠action中间件，并通过applyMiddleware生成enhancer，详细参考[异步Action](http://cn.redux.js.org/docs/advanced/AsyncActions.html)，并考虑[redux-thunk](https://github.com/gaearon/redux-thunk)
 * 在reducers中编写reducer，reducer负责描述state的变化且每次返回新的state（不修改state），因此reducer是纯函数
 * reducer需要良好组合，参考[组织Reducer](http://cn.redux.js.org/docs/recipes/StructuringReducers.html)
 * action和reducer需要平衡，参考[如何将逻辑在 reducer 和 action 创建函数之间划分？ “业务逻辑” 应该放在哪里？](http://cn.redux.js.org/docs/faq/CodeStructure.html#structure-business-logic)
@@ -101,12 +101,18 @@ config/webpackDevServer.config.js中配置webpack-dev-server。
 
 ## 常见问题
 
-<details>
-  <summary>尽量避免组件重复渲染</summary>
-  一种方法是<a href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate">shouldComponentUpdate</a>。
-</details>
+<p>
+  <details>
+    <summary>尽量避免组件重复渲染</summary>
 
-<details>
-  <summary>灵活地、细粒度操作DOM或组件</summary>
-  一种方法是使用<a href="https://reactjs.org/docs/refs-and-the-dom.html">ref</a>。
-</details>
+    一种方法是<a href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate">shouldComponentUpdate</a>。
+  </details>
+</p>
+
+<p>
+  <details>
+    <summary>灵活地、细粒度操作DOM或组件</summary>
+
+    一种方法是使用<a href="https://reactjs.org/docs/refs-and-the-dom.html">ref</a>。
+  </details>
+</p>
